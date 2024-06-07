@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Superior Bold";
+  src: url("/fonts/ltsuperior-bold.otf");
+}
+
+@font-face {
+  font-family: "Superior Regular";
+  src: url("/fonts/ltsuperior-regular.otf");
+}
+
+@font-face {
+  font-family: "Superior Medium";
+  src: url("/fonts/ltsuperior-medium.otf");
+}
+
+@font-face {
+  font-family: "Superior Semibold";
+  src: url("/fonts/ltsuperior-semibold.otf");
+}

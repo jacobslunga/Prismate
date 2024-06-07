@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String       @id @default(cuid())
+  email         String       @unique
+  name          String?
+  image         String?
+  designs       Design[]
+  subscriptions Subscription[]
+  payments      Payment[]
+}
+
+model Design {
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  name        String
+  userId      String
+  user        User         @relation(fields: [userId], references: [id])
+  components  Component[]
+}
+
+model Component {
+  id        String       @id @default(cuid())
+  type      String
+  content   Json
+  designId  String
+  design    Design    @relation(fields: [designId], references: [id])
+}
+
+model Subscription {
+  id          String       @id @default(cuid())
+  userId      String
+  user        User       @relation(fields: [userId], references: [id])
+  plan        String
+  status      String
+  startDate   DateTime   @default(now())
+  endDate     DateTime?
+}
+
+model Payment {
+  id              String       @id @default(cuid())
+  userId          String
+  user            User       @relation(fields: [userId], references: [id])
+  amount          Float
+  transactionDate DateTime   @default(now())
+  status          String
+}
