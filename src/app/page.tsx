@@ -4,7 +4,7 @@ import HomeInput from "@/components/HomeInput";
 import Image from "next/image";
 import useNextBlurhash from "use-next-blurhash";
 
-export default function Home() {
+export default async function Home() {
   const [blurDataUrl] = useNextBlurhash("LEHV6nWB2yk8pyo0adR*.7kCMdnj");
 
   return (
