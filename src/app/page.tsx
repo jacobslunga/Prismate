@@ -1,10 +1,19 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HomeInput from "@/components/HomeInput";
+import { authOptions } from "@/lib/util/authOptions";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import useNextBlurhash from "use-next-blurhash";
 
 export default async function Home() {
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    redirect("/dashboard");
+  }
+
   const [blurDataUrl] = useNextBlurhash("LEHV6nWB2yk8pyo0adR*.7kCMdnj");
 
   return (
