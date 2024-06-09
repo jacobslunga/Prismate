@@ -27,13 +27,16 @@ export const authOptions: NextAuthOptions = {
       });
 
       if (!existingUser) {
-        await db.user.create({
+        const newUser = await db.user.create({
           data: {
             email: user.email,
             name: user.name || user.email,
             image: user.image || null,
           },
         });
+        user.id = newUser.id;
+      } else {
+        user.id = existingUser.id;
       }
 
       return true;
