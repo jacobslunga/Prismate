@@ -11,13 +11,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-export function Add() {
+function Add() {
   return (
-    <TooltipProvider delayDuration={200}>
+    <TooltipProvider delayDuration={0}>
       <Tooltip defaultOpen={false}>
         <TooltipTrigger asChild>
           <button
-            className="p-2 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors duration-200"
+            className="p-2 rounded-xl dark:bg-white/10 dark:text-white dark:hover:bg-white/20 text-black bg-black/5 hover:bg-black/10 transition-colors duration-200"
             title="Create a new project"
           >
             <PlusIcon className="w-5 h-5" />
@@ -92,11 +92,11 @@ const SideBar: FC<SideBarProps> = ({}) => {
       style={{
         scrollbarWidth: "none",
       }}
-      className="left-0 w-[25%] fixed h-screen flex flex-col items-center bg-bg justify-center overflow-auto"
+      className="left-0 w-[25%] fixed h-screen flex flex-col items-center bg-white dark:bg-bg justify-center overflow-auto"
     >
-      <div className="sticky bg-gradient-to-b from-bg via-[rgba(15,15,15,0.7)] to-transparent top-0 p-5 w-full flex flex-row items-center px-5 justify-between">
+      <div className="sticky bg-gradient-to-b dark:from-bg dark:via-[rgba(15,15,15,0.7)] from-white via-[rgba(255,255,255,0.7)] to-transparent top-0 p-5 w-full flex flex-row items-center px-5 justify-between">
         <Link href="/dashboard">
-          <h1 className="select-none font-sup-med text-main tracking-tight text-xl">
+          <h1 className="select-none font-sup-med text-black dark:text-main tracking-tight text-xl">
             Prismate
           </h1>
         </Link>
@@ -107,8 +107,10 @@ const SideBar: FC<SideBarProps> = ({}) => {
         {dummyData.map((data) => (
           <Link key={data.id} href={`/design/${data.id}`}>
             <div className="w-full flex flex-row items-center justify-between px-5 py-2 hover:bg-white/10 transition-colors duration-200">
-              <p className="text-white/70">{data.name}</p>
-              <p className="text-white/50">{data.components} components</p>
+              <p className="dark:text-white/70 text-black">{data.name}</p>
+              <p className="dark:text-white/50 text-black">
+                {data.components} components
+              </p>
             </div>
           </Link>
         ))}

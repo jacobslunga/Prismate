@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { FC } from "react";
 
 import { Button } from "@/components/ui/button";
+import DesignSystem from "@/components/DesignSystem";
 
 interface DashboardProps {}
 
@@ -42,8 +43,9 @@ const Dashboard: FC<DashboardProps> = async ({}) => {
   console.log(user);
 
   return (
-    <div className="flex flex-row items-center bg-zinc-900 justify-center w-screen lg:w-[75%] absolute right-0 min-h-screen">
+    <div className="flex flex-col items-center bg-zinc-50 dark:bg-zinc-900 justify-start py-5 w-screen lg:w-[75%] absolute right-0 min-h-screen">
       <SearchBar />
+      <DesignSystem />
     </div>
   );
 };
