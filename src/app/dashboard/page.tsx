@@ -1,8 +1,11 @@
+import SearchBar from "@/components/SearchBar";
 import { db } from "@/db";
 import { authOptions } from "@/lib/util/authOptions";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { FC } from "react";
+
+import { Button } from "@/components/ui/button";
 
 interface DashboardProps {}
 
@@ -32,10 +35,16 @@ const Dashboard: FC<DashboardProps> = async ({}) => {
     },
   });
 
+  if (!user) {
+    redirect("/");
+  }
+
   console.log(user);
 
   return (
-    <div className="flex flex-row items-center justify-center w-screen min-h-screen"></div>
+    <div className="flex flex-row items-center bg-zinc-900 justify-center w-screen lg:w-[75%] absolute right-0 min-h-screen">
+      <SearchBar />
+    </div>
   );
 };
 
