@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState, useRef } from "react";
+import { FC, useState } from "react";
 import { ArrowRightIcon, ShadowInnerIcon } from "@radix-ui/react-icons";
 
 import {
@@ -33,11 +33,11 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
   const [query, setQuery] = useState<string>("");
 
   return (
-    <div className="flex flex-row items-center justify-between px-2 rounded-full bg-white border dark:bg-white/5 shadow-md w-full max-w-6xl p-2 sticky">
+    <div className="flex flex-row items-center justify-between px-2 rounded-full bg-white border dark:bg-white/5 shadow-sm w-full max-w-4xl max-xl:max-w-6xl p-2 sticky top-5">
       <Properties />
       <input
         placeholder="Describe your design..."
-        className="outline-none px-5 border-none focus-visible:ring-0 shadow-none bg-transparent font-lg text-black dark:text-white w-full h-auto flex-grow"
+        className="outline-none px-5 border-none focus-visible:ring-0 shadow-none bg-transparent text-base text-black dark:text-white w-full h-auto flex-grow"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

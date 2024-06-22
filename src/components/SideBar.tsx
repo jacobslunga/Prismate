@@ -92,9 +92,9 @@ const SideBar: FC<SideBarProps> = ({}) => {
       style={{
         scrollbarWidth: "none",
       }}
-      className="left-0 w-[25%] fixed h-screen flex flex-col items-center bg-white dark:bg-bg justify-center overflow-auto"
+      className="left-0 w-[20%] fixed h-screen flex flex-col items-center bg-white dark:bg-bg justify-center overflow-auto"
     >
-      <div className="sticky bg-gradient-to-b dark:from-bg dark:via-[rgba(15,15,15,0.7)] from-white via-[rgba(255,255,255,0.7)] to-transparent top-0 p-5 w-full flex flex-row items-center px-5 justify-between">
+      <div className="sticky bg-white dark:bg-bg top-0 p-5 w-full flex flex-row items-center px-5 justify-between">
         <Link href="/dashboard">
           <h1 className="select-none font-sup-med text-black dark:text-main tracking-tight text-xl">
             Prismate

@@ -4,9 +4,7 @@ import { IconArrowWaveRightUp, IconSignature } from "@tabler/icons-react";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
 import {
   Component1Icon,
-  Component2Icon,
   LetterCaseCapitalizeIcon,
-  Pencil2Icon,
   RulerSquareIcon,
 } from "@radix-ui/react-icons";
 
@@ -102,13 +100,13 @@ const TypographySection = () => {
 export function DesignSystemGrid() {
   return (
     <div className="w-full h-full flex flex-col items-start justify-center">
-      <div className="w-full flex flex-row items-center max-w-6xl mx-auto mb-5 mt-10 space-x-5">
+      <div className="w-full flex flex-row items-center max-w-4xl max-xl:max-w-6xl mx-auto mb-5 mt-10 space-x-5">
         <h1 className="font-bold tracking-tight text-black dark:text-white text-4xl">
           Design System 1
         </h1>
         <ChangeName />
       </div>
-      <BentoGrid className="max-w-6xl mx-auto mt-5">
+      <BentoGrid className="max-w-4xl max-xl:max-w-6xl mx-auto mt-5">
         {items.map((item, i) => (
           <BentoGridItem
             key={i}
